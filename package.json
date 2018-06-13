@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/joseluisbsa/vdsom/issues"
   },
-  "homepage": "https://github.com/joseluisbsa/vdsom#readme"
+  "homepage": "https://github.com/joseluisbsa/vdsom#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-load": "^1.1.16",
+    "express-validator": "^5.2.0",
+    "mysql": "^2.15.0"
+  }
 }
