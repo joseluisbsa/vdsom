@@ -1,0 +1,19 @@
+{
+  "name": "vdsom",
+  "version": "1.0.0",
+  "description": "vivenda do som",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseluisbsa/vdsom.git"
+  },
+  "author": "Joseph_br",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseluisbsa/vdsom/issues"
+  },
+  "homepage": "https://github.com/joseluisbsa/vdsom#readme"
+}
