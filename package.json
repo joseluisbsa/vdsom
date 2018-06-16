@@ -18,6 +18,7 @@
   "homepage": "https://github.com/joseluisbsa/vdsom#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "consign": "^0.1.6",
     "express": "^4.16.3",
     "express-load": "^1.1.16",
     "express-validator": "^5.2.0",
