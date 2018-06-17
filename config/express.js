@@ -3,7 +3,8 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       helmet = require('helmet'),
       pool = require('../DAO/poolFactory'),
-      connMiddleware = require('./connMiddleware')
+      connMiddleware = require('./connMiddleware'),
+      expressValidator = require('express-validator')
 
 module.exports = () => {
     const app = express()
@@ -12,6 +13,7 @@ module.exports = () => {
     app.use(connMiddleware(pool));
     app.use(bodyParser.urlencoded({ extended: true}))
     app.use(bodyParser.json())
+    app.use(expressValidator())
 
     consign()
         .include('controllers')
