@@ -5,19 +5,32 @@ module.exports = app => {
     })
 
     app.post('/cadastro/adicionar', (req, res) => {
-        let aluno = req.body
+        
+        req.assert('nome', 'Nome obrigatorio').notEmpty();
+        req.assert('idade', 'Idade obrigatoria').notEmpty();
 
-        console.log('req recebecido em /cadastro/adicionar')
+        const erros = req.validationErrors();
 
-        let alunoDao = new app.DAO.AlunoDao(req.connection)
+        if(erros) {
+            console.log('Erro em algum campo');
+            res.status(400).send(erros)
+            return;
+        }
+
+        let aluno = req.body;
+        
+        console.log('req recebecido em /cadastro/adicionar');
+
+        let alunoDao = new app.DAO.AlunoDao(req.connection);
 
         alunoDao.criarAluno(aluno, (erro, resultado) => {
             if (erro) {
-                res.send(erro)
+                console.log('Erro DB: ' + erro);
+                res.status(400).send(erro);
             } else {
-                console.log('aluno criado')
-                res.json(aluno)
+                console.log('aluno criado');
+                res.json(aluno);
             }
-        })
-    })
+        });
+    });
 }
