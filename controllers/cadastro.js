@@ -3,4 +3,16 @@ module.exports = app => {
         console.log('page cadastro opened')
         res.send('OK')
     })
+
+    app.post('/cadastro/adicionar', (req, res) => {
+        let reqBody = req.reqBody
+
+        console.log('req recebecido em /cadastro/adicionar')
+
+        reqBody.status = 'CRIADO'
+        reqBody.data = new Date
+
+        res.send(reqBody)
+
+    })
 }
