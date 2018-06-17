@@ -9,8 +9,7 @@ module.exports = app => {
 
         console.log('req recebecido em /cadastro/adicionar')
 
-        let connection = app.DAO.connectionFactory()
-        let alunoDao = new app.DAO.AlunoDao(connection)
+        let alunoDao = new app.DAO.AlunoDao(req.connection)
 
         alunoDao.criarAluno(aluno, (erro, resultado) => {
             if (erro) {
@@ -20,6 +19,5 @@ module.exports = app => {
                 res.json(aluno)
             }
         })
-        connection.end();
     })
 }
