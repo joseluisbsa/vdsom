@@ -5,14 +5,22 @@ module.exports = app => {
     })
 
     app.post('/cadastro/adicionar', (req, res) => {
-        let reqBody = req.body
+        let aluno = req.body
 
         console.log('req recebecido em /cadastro/adicionar')
 
-        reqBody.status = 'CRIADO'
-        reqBody.data = new Date
+        let connection = app.DAO.connectionFactory()
+        let alunoDao = new app.DAO.AlunoDao(connection)
 
-        res.send(reqBody)
+        alunoDao.criarAluno(aluno, (erro, resultado) => {
+            //if (erro) console.log('ERRO: ' + erro)
+            console.log('aluno criado')
+            res.json(aluno)
+
+        })
+        connection.end();
+
+        //res.send(aluno)
 
     })
 }
