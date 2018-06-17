@@ -5,7 +5,7 @@ module.exports = app => {
     })
 
     app.post('/cadastro/adicionar', (req, res) => {
-        let reqBody = req.reqBody
+        let reqBody = req.body
 
         console.log('req recebecido em /cadastro/adicionar')
 
