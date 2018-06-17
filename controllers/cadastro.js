@@ -13,14 +13,13 @@ module.exports = app => {
         let alunoDao = new app.DAO.AlunoDao(connection)
 
         alunoDao.criarAluno(aluno, (erro, resultado) => {
-            //if (erro) console.log('ERRO: ' + erro)
-            console.log('aluno criado')
-            res.json(aluno)
-
+            if (erro) {
+                res.send(erro)
+            } else {
+                console.log('aluno criado')
+                res.json(aluno)
+            }
         })
         connection.end();
-
-        //res.send(aluno)
-
     })
 }
