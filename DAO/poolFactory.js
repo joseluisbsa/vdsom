@@ -22,4 +22,4 @@ process.on('SIGINT', () =>
 
 module.exports = pool;
 
-// to test using curl: curl http://localhost:3000/cadastro/adicionar -X POST -v  -H "Content-type: application/json" -d @user.json | json_pp
+// to test using curl: curl http://localhost:3000/alunos -X POST -v  -H "Content-type: application/json" -d @user.json | json_pp
