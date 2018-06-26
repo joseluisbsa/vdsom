@@ -1,1 +1,1 @@
-angular.module('vdsom', []);
+angular.module('vdsom', ['minhasDiretivas']);
