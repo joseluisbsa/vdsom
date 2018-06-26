@@ -1,27 +1,48 @@
 <!DOCTYPE html>
+<!-- ng-app informa o module principal-->
 <html lang="pt-br" ng-app="vdsom">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <title>VDSom</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/lib/angular.min.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/controllers/nomes-controller.js"></script>
-        <script src="js/directives/minhas-diretivas.js"></script>
-    </head>
-    <body ng-controller="NomesController">
-        <div class="container">
 
-            <div class="jumbotron">
-                <h1 class="text-center">VDSom</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>VDSom</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers/nomes-controller.js"></script>
+    <script src="js/directives/minhas-diretivas.js"></script>
+</head>
+
+<body ng-controller="NomesController">
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">VDSom</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <!-- delay 500 ms / ng-model envia a entrada para
+                    $scope.filtro do controller-->
+                    <input ng-model="filtro" 
+                    ng-model-options="{ debounce: 500}"
+                    class="form-control" 
+                    placeholder="filtrar">
+                </form>
             </div>
+        </div>
 
-            <meu-painel ng-repeat="nome in nomes" nome="{{nome.nome}}">
+        <div class="row">
+            <meu-painel class="col-md-2" 
+            ng-repeat="nome in nomes | filter: filtro" 
+            nome="{{nome.nome}}">
                 <p>FOO</p>
             </meu-painel>
+        </div>
+    </div>
+    <!-- fim container -->
+</body>
 
-        </div> <!-- fim container -->        
-    </body>
 </html>
