@@ -1,6 +1,10 @@
 const AlunoDao = require('../../DAO/AlunoDao');
 let api = {};
 
+api.enviar = (req, res, next) => {
+    res.json([{nome: 'Jose'},{nome: 'Luidi'}]);
+}
+
 api.listar = (req, res, next) => {
     const responderClient = alunos => {
         console.log(alunos);
