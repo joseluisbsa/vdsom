@@ -6,4 +6,9 @@ angular.module('vdsom', ['minhasDiretivas', 'ngAnimate',
         templateUrl:'partials/principal.html',
         controller:'NomesController'
     });
+
+    $routeProvider.when('/nomes/new', {
+        templateUrl: 'partials/nome.html',
+        controller:'NomesControler'
+    });
 });                      
