@@ -1,6 +1,5 @@
-angular.module('vdsom', ['minhasDiretivas', 
-                        'ngAnimate', 
-                        'ngRoute'])
+angular.module('vdsom', ['minhasDiretivas', 'ngAnimate',
+                          'ngRoute'])
 .config(function($routeProvider) {
 
     $routeProvider.when('/nomes', {
