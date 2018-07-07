@@ -1,5 +1,0 @@
-data insercao timestamp default NN now
-usuario insercao
-data update
-usuario update
- 
