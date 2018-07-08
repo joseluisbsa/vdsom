@@ -1,30 +1,42 @@
 <div class="page-header text-center">
     <h1>{{nome.nome}}</h1>
 </div>
+<!-- ng-show="mensagem.length" funciona como um if booleano para o length -->
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 
-<form name="formulario" class="row" ng-submit="salvarNome()">
+<form novalidate name="formulario" class="row" ng-submit="salvarNome()">
     <div class="col-md-6">
         <div class="form-group">
             <label>Nome</label>
-            <input ng-model="nome.nome" name="nome" class="form-control">
+            <input required ng-maxlength="30" ng-model="nome.nome" name="nome" class="form-control">
+            <!-- if botao submit && campo nao preenchido, exibe danger message-->
+            <span ng-show="formulario.$submitted && formulario.nome.$error.required" class="form-control alert-danger">
+                Nome Obrigatório
+            </span>
+            <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength" class="form-control alert-danger">
+                Deve ter no máximo 30 caracteres
+            </span>
         </div>
         <div class="form-group">
-            <label>Telefone</label>
-            <input ng-model="nome.telefone" name="telefone" class="form-control">
+            <label>Idade</label>
+            <input required ng-model="nome.idade" name="idade" class="form-control">
+            <span ng-show="formulario.$submitted && formulario.idade.$error.required" class="form-control alert-danger">
+                Idade obrigatório
+            </span>
         </div>
         <div class="form-group">
             <label>Observação</label>
             <textarea ng-model="nome.observacao" name="observacao" class="form-control">
             </textarea>
         </div>
-
-        <button type="submit" class="btn btn-primary">
+        <!-- ng-disabled bloqueia botao até que o form esteja OK para submeter -->
+        <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
         </button>
         <a href="#/nomes" class="btn btn-primary">Voltar</a>
         <hr>
     </div>
     <div class="col-md-6">
-        <minha-foto url="{{nome.telefone}}" titulo="nome.nome"></minha-foto>
+        <minha-foto url="{{nome.idade}}" titulo="nome.nome"></minha-foto>
     </div>
 </form>
