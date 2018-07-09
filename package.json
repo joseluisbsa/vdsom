@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/joseluisbsa/vdsom#readme",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "consign": "^0.1.6",
-    "express": "^4.16.3",
-    "express-validator": "^5.2.0",
-    "helmet": "^3.12.1",
-    "mysql": "^2.15.0",
-    "nedb": "^1.1.2"
+    "body-parser": "1.18.3",
+    "consign": "0.1.6",
+    "dotenv": "6.0.0",
+    "express": "4.16.3",
+    "express-validator": "5.2.0",
+    "helmet": "3.12.1",
+    "mysql": "2.15.0"
   }
 }
