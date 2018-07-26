@@ -12,5 +12,10 @@ angular.module('vdsom', ['minhasDiretivas', 'ngAnimate',
         controller:'NomeController'
     });
 
+    $routeProvider.when('/nomes/edit/:nomeId', {
+        templateUrl: 'partials/nome.html',
+        controller:'NomeController'
+    });
+
     $routeProvider.otherwise({redirectTo: '/nomes'});
 });                      
