@@ -3,6 +3,7 @@ angular.module('vdsom').controller('NomesController',
 
     $scope.nomes = [];
     $scope.filtro = '';
+    $scope.mensagem = '';
 
     $http.get('/test')
     .success( nomes => {
@@ -11,4 +12,17 @@ angular.module('vdsom').controller('NomesController',
     .error(erro => {
         console.log(erro)
     });
+
+    $scope.remover = function(nome){
+        $http.delete('url/uri' + nome.id)
+        .success(function(){
+            const index = $scope.nomes.indexOf(nome);
+            $scope.fotos.splice(index, 1);
+            $scope.mensagem = `Nome ${nome.nome} foi removido com sucesso!`;
+        })
+        .error(function(erro){
+            console.log(erro);
+            $scope.mensagem = `Não foi possivel remover a foto ${nome.nome}`;
+        })
+    }
 });
