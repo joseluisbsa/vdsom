@@ -2,6 +2,10 @@
     <h1 class="text-center">VDSom</h1>
 </div>
 
+<p class="alert alert-info" ng-show="mensagem.length">
+    {{mensagem}}
+</p>
+
 <div class="row">
     <div class="col-md-12">
         <form>
@@ -26,5 +30,7 @@
     ng-repeat="nome in nomes | filter: filtro" 
     nome="{{nome.nome}}">
         <p>FOO</p>
+        <a href="#/nomes/edit/{{nome.id}}" class="btn btn-primary btn-block">Editar</a>
+        <button ng-click="remover(nome)" class="btn btn-danger btn-block">Remover</button>
     </meu-painel>
 </div>
