@@ -29,6 +29,21 @@
             <textarea ng-model="nome.observacao" name="observacao" class="form-control">
             </textarea>
         </div>
+
+        <div>
+            <label>Grupo</label>
+            <select name="grupo" class="form-control" required 
+            ng-controller="GruposController"
+            ng-model="nome.grupo"
+            ng-options="grupo.id as (grupo.nome | uppercase) for grupo in grupos">
+                <option value="">Selecione...</option>
+            </select>
+            <span ng-show="formulario.$submitted && formulario.grupo.$error.required" class="form-control alert-danger">
+                Grupo obrigatório
+            </span>
+        </div>
+
+
         <!-- ng-disabled bloqueia botao até que o form esteja OK para submeter -->
         <button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
             Salvar
