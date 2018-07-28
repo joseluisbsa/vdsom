@@ -5,7 +5,7 @@ angular.module('vdsom').controller('NomesController',
     $scope.filtro = '';
     $scope.mensagem = '';
 
-    $http.get('/test')
+    $http.get('/nomes')
     .success( nomes => {
         $scope.nomes = nomes;
     })
