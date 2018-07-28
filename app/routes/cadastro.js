@@ -4,6 +4,7 @@ const api = require('../api/cadastro');
 module.exports = app => {
 
     app.get('/alunos', api.listar);
-    app.get('/test', api.enviar);
+    app.get('/nomes', api.enviar);
+    app.get('/grupos', api.enviarGrupos);
     app.post('/alunos', api.cadastrar);
 };
