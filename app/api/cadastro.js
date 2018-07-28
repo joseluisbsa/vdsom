@@ -5,6 +5,10 @@ api.enviar = (req, res, next) => {
     res.json([{nome: 'Jose'},{nome: 'Luidi'}]);
 }
 
+api.enviarGrupos = (req, res, next) => {
+    res.json([{id: 1, nome: 'Violao'},{id: 2, nome: 'Canto'}]);
+}
+
 api.listar = (req, res, next) => {
     const responderClient = alunos => {
         console.log(alunos);
