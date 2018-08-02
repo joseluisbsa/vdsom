@@ -1,5 +1,6 @@
+// vdson é o modulo principal que depende dos modulos dentro de ['...']
 angular.module('vdsom', ['minhasDiretivas', 'ngAnimate',
-                          'ngRoute'])
+                          'ngRoute', 'meusServicos'])
 .config(function($routeProvider) {
 
     $routeProvider.when('/nomes', {
